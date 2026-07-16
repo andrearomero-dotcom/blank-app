@@ -76,9 +76,9 @@ var impl = {{
                 var brandName = "{brand}";
 
                 // Consumer form elements
-                var tealiumVisitorID = ctx."{ctx_tealiumVisitorID}" ? ctx."{ctx_tealiumVisitorID}" : ctx."{ctx_emailAddress}" + Date.now();                
-                var firstName = ctx."{ctx_firstname}";
-                var lastName = ctx."{ctx_firstname}";
+                var tealiumVisitorID = ctx.'{ctx_tealiumVisitorID}' ? ctx.'{ctx_tealiumVisitorID}' : ctx.'{ctx_emailAddress}' + Date.now();                
+                var firstName = ctx.'{ctx_firstname}';
+                var lastName = ctx."{ctx_lastname}";
                 var emailAddress = "{ctx_emailAddress}";
                 var SLO_PRSCRB = ctx.SLO_PRSCRB; 
                 var SLO_INDICATION = ctx.indication_received_by_selections;
