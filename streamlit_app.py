@@ -77,8 +77,8 @@ var impl = {{
 
                 // Consumer form elements
                 var tealiumVisitorID = ctx."{ctx_tealiumVisitorID}" ? ctx."{ctx_tealiumVisitorID}" : ctx."{ctx_emailAddress}" + Date.now();                
-                var firstName = ctx."{ctx_firstName}";
-                var lastName = ctx."{ctx_firstName}";
+                var firstName = ctx."{ctx_firstname}";
+                var lastName = ctx."{ctx_firstname}";
                 var emailAddress = "{ctx_emailAddress}";
                 var SLO_PRSCRB = ctx.SLO_PRSCRB; 
                 var SLO_INDICATION = ctx.indication_received_by_selections;
