@@ -1,6 +1,7 @@
 import streamlit as st
 
-st.title("🎈 Holaa")
-st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
-)
+st.set_page_config(page_title="Generador de Scripts SnapLogic", layout="wide")
+
+st.title("🔌 Generador de Scripts JS para SnapLogic")
+st.write("Completa los datos de la campaña para generar el código JavaScript personalizado.")
+
