@@ -1,17 +1,17 @@
 import streamlit as st
 
-st.set_page_config(page_title="Generador de Scripts SnapLogic", layout="wide")
+st.set_page_config(page_title="Generator S3 code consumer registration", layout="wide")
 
-st.title("🔌 Generador de Scripts JS para SnapLogic")
-st.write("Completa los datos de la campaña para generar el código JavaScript personalizado.")
+st.title("Generator S3 code consumer registration")
+st.write("Campaign data")
 
 # Crear dos columnas: una para el formulario y otra para el resultado
 col1, col2 = st.columns([1, 1])
 
 with col1:
-    st.header("📋 Datos de la Campaña")
+    st.header("Input Info")
     
-    brand = st.text_input("Nombre de la Marca (Brand)", value="Saphnelo")
+    brand = st.text_input("Brand", value="Saphnelo")
     
     source_code = st.text_input("Source Code", value="ODGT")
     country_code = st.text_input("Country Code", value="USA")
@@ -19,17 +19,18 @@ with col1:
     survey_code = st.text_input("Survey Code (SurveyID)", value="SLO_PSP_B_WB_1")
     media_code = st.text_input("Media Code", value="SLO_C_C_123")
     
-    st.subheader("Configuración de Tealium")
+    st.subheader("Tealium data")
     tealium_ds = st.text_input("Tealium Datasource", value="0t78qu")
     tealium_acc = st.text_input("Tealium Account", value="astrazeneca")
     tealium_prof = st.text_input("Tealium Profile", value="us-consumer-test")
-    brand_web = st.text_input("Brand Website profile", value="us-saphnelo-ic")
+    brand_web = st.text_input("Brand Profile IQ", value="us-saphnelo-ic")
     tealium_trace = st.text_input("Tealium Trace ID", value="OHywBulB")
 
-    st.subheader("Payload data ctx variables")
-    firstname_form = st.text_input("First Name", value="firstname")
-    lastname_form = st.text_input("Last Name", value="lastName")
-    emailAddress_form = st.text_input("email", value="emailAddress")
+    st.subheader("Payload data (ctx variables")
+    ctx_firstname = st.text_input("First Name", value="firstname")
+    ctx_lastname = st.text_input("Last Name", value="lastName")
+    ctx_emailAddress = st.text_input("email", value="emailAddress")
+    ctx_tealiumVisitorID = st.text_input("tealiumVisitorID", value="tealiumVisitorID")
 
 # Generación del String de JS dinámicamente
 js_template = f"""// Ensure compatibility with both JDK 7 and 8 JSR-223 Script Engines 
@@ -74,10 +75,11 @@ var impl = {{
                 var brandWebsiteCode = "{brand_web}";
                 var brandName = "{brand}";
 
-                var tealiumVisitorID = ctx."{ctx_tealiumVisitorID}" ? ctx."{ctx_tealiumVisitorID}" : ctx."{ctx.emailAddress}" + Date.now();                
-                var firstName = ctx."{ctx_firstname}";
-                var lastName = ctx."{ctx_lastname}";
-                var emailAddress = ctx."{ctx.emailAddress}";
+                // Consumer form elements
+                var tealiumVisitorID = ctx.tealiumVisitorID ? ctx.tealiumVisitorID : ctx.emailAddress + Date.now();                
+                var firstName = ctx.firstName;
+                var lastName = ctx.lastName;
+                var emailAddress = ctx.emailAddress;
                 var SLO_PRSCRB = ctx.SLO_PRSCRB; 
                 var SLO_INDICATION = ctx.indication_received_by_selections;
                 var SLO_TXDATE = ctx.SLO_CONFIRMATION_selections;
