@@ -12,7 +12,7 @@ with col1:
     st.header("📋 Datos de la Campaña")
     
     brand = st.text_input("Nombre de la Marca (Brand)", value="Saphnelo")
-    brand_web = st.text_input("Código Web de la Marca (Brand Website Code)", value="us-saphnelo-ic")
+    
     source_code = st.text_input("Source Code", value="ODGT")
     country_code = st.text_input("Country Code", value="USA")
     resp_source_code = st.text_input("Response Source Code", value="SLO_PSP_B_WB_1")
@@ -23,7 +23,13 @@ with col1:
     tealium_ds = st.text_input("Tealium Datasource", value="0t78qu")
     tealium_acc = st.text_input("Tealium Account", value="astrazeneca")
     tealium_prof = st.text_input("Tealium Profile", value="us-consumer-test")
+    brand_web = st.text_input("Brand Website profile", value="us-saphnelo-ic")
     tealium_trace = st.text_input("Tealium Trace ID", value="OHywBulB")
+
+    st.subheader("Payload data ctx variables")
+    firstname_form = st.text_input("First Name", value="firstname")
+    lastname_form = st.text_input("Last Name", value="lastName")
+    emailAddress_form = st.text_input("email", value="emailAddress")
 
 # Generación del String de JS dinámicamente
 js_template = f"""// Ensure compatibility with both JDK 7 and 8 JSR-223 Script Engines 
@@ -68,11 +74,10 @@ var impl = {{
                 var brandWebsiteCode = "{brand_web}";
                 var brandName = "{brand}";
 
-                // Consumer form elements
-                var tealiumVisitorID = ctx.tealiumVisitorID ? ctx.tealiumVisitorID : ctx.emailAddress + Date.now();                
-                var firstName = ctx.firstName;
-                var lastName = ctx.lastName;
-                var emailAddress = ctx.emailAddress;
+                var tealiumVisitorID = ctx."{ctx_tealiumVisitorID}" ? ctx."{ctx_tealiumVisitorID}" : ctx."{ctx.emailAddress}" + Date.now();                
+                var firstName = ctx."{ctx_firstname}";
+                var lastName = ctx."{ctx_lastname}";
+                var emailAddress = ctx."{ctx.emailAddress}";
                 var SLO_PRSCRB = ctx.SLO_PRSCRB; 
                 var SLO_INDICATION = ctx.indication_received_by_selections;
                 var SLO_TXDATE = ctx.SLO_CONFIRMATION_selections;
