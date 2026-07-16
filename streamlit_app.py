@@ -26,7 +26,7 @@ with col1:
     brand_web = st.text_input("Brand Profile IQ", value="us-saphnelo-ic")
     tealium_trace = st.text_input("Tealium Trace ID", value="OHywBulB")
 
-    st.subheader("Payload data (ctx variables")
+    st.subheader("Payload data (ctx variables)")
     ctx_firstname = st.text_input("First Name", value="firstname")
     ctx_lastname = st.text_input("Last Name", value="lastName")
     ctx_emailAddress = st.text_input("email", value="emailAddress")
@@ -66,7 +66,7 @@ var impl = {{
                     ("0" + respDate.getMinutes()).slice(-2) + ":" + 
                     ("0" + respDate.getSeconds()).slice(-2);
 
-                // VALORES ESTABLECIDOS DESDE LA INTERFAZ DE USUARIO
+                
                 var sourceCode = "{source_code}";
                 var countryCode = "{country_code}";
                 var respSourceCode = "{resp_source_code}";
@@ -76,7 +76,7 @@ var impl = {{
                 var brandName = "{brand}";
 
                 // Consumer form elements
-                var tealiumVisitorID = ctx.tealiumVisitorID ? ctx.tealiumVisitorID : ctx.emailAddress + Date.now();                
+                var tealiumVisitorID = ctx."{ctx_tealiumVisitorID}" ? ctx."{ctx_tealiumVisitorID}" : ctx."{ctx_emailAddress}" + Date.now();                
                 var firstName = ctx.firstName;
                 var lastName = ctx.lastName;
                 var emailAddress = ctx.emailAddress;
