@@ -248,6 +248,6 @@ var impl = {{
 var hook = new com.snaplogic.scripting.language.ScriptHook(impl);"""
 
 with col2:
-    st.header("💻 Código JS Generado")
-    st.caption("Copia este código y pégalo directamente en tu Script Snap de SnapLogic.")
+    st.header("Output: Code S3")
+    st.caption("S3 Script")
     st.code(js_template, language="javascript")
