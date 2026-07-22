@@ -74,7 +74,7 @@ if ctx_emailAddress:
                     "Email": emailAddress
                 }});"""
 else:
-    email_block = "var emailAddresses = new ArrayList();"
+    email_block = ""
 
 # Generación del String de JS dinámicamente con los bloques condicionales
 js_template = f"""// Ensure compatibility with both JDK 7 and 8 JSR-223 Script Engines 
