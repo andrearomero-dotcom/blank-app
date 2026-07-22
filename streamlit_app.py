@@ -66,15 +66,15 @@ email_line = f'var emailAddress = ctx.{ctx_emailAddress};' if ctx_emailAddress e
 phonenumber_line = f'var phonenumber = ctx.{ctx_phonenumber};' if ctx_phonenumber else ''
 
 # Bloque condicional para el ArrayList de emails en JavaScript
-email_block = ""
+email_array = ""
 if ctx_emailAddress:
-    email_block = f"""var emailAddresses = new ArrayList();
+    email_array = f"""var emailAddresses = new ArrayList();
                 emailAddresses.add({{
                     "EmailType": "Unknown",
                     "Email": emailAddress
                 }});"""
 else:
-    email_block = ""
+    email_array = ""
 
 # Generación del String de JS dinámicamente con los bloques condicionales
 js_template = f"""// Ensure compatibility with both JDK 7 and 8 JSR-223 Script Engines 
@@ -127,7 +127,7 @@ var impl = {{
                 
                 var mobilePhone = ctx.SLO_MOBILE_REQUIRED ? ctx.SLO_MOBILE_REQUIRED : ctx.SLO_MOBILE;
                 
-                {email_block}
+                {email_array}
                                         
                 var sourceKey = new ArrayList();
                 sourceKey.add({{
