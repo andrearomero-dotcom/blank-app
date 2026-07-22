@@ -18,7 +18,8 @@ with col1:
     resp_source_code = st.text_input("Response Source Code", value="SLO_PSP_B_WB_1")
     survey_code = st.text_input("Survey Code (SurveyID)", value="SLO_PSP_B_WB_1")
     media_code = st.text_input("Media Code", value="SLO_C_C_123")
-    
+
+    with st.expander("Tealium data"):
     st.subheader("Tealium data")
     tealium_ds = st.text_input("Tealium Datasource", value="0t78qu")
     tealium_acc = st.text_input("Tealium Account", value="astrazeneca")
