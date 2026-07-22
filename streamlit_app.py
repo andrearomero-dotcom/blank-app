@@ -34,8 +34,6 @@ with col1:
     ctx_tealiumVisitorID = st.text_input("tealiumVisitorID", value="tealiumVisitorID")
 
 # --- CONSTRUCCIÓN CONDICIONAL DEL JAVASCRIPT ---
-# Solo incluimos las líneas de código si el usuario ingresó información en el campo
-
 config_lines = []
 if source_code:
     config_lines.append(f'var sourceCode = "{source_code}";')
@@ -66,6 +64,17 @@ firstname_line = f'var firstName = ctx.{ctx_firstname};' if ctx_firstname else '
 lastname_line = f'var lastName = ctx.{ctx_lastname};' if ctx_lastname else ''
 email_line = f'var emailAddress = ctx.{ctx_emailAddress};' if ctx_emailAddress else ''
 phonenumber_line = f'var phonenumber = ctx.{ctx_phonenumber};' if ctx_phonenumber else ''
+
+# Bloque condicional para el ArrayList de emails en JavaScript
+email_block = ""
+if ctx_emailAddress:
+    email_block = f"""var emailAddresses = new ArrayList();
+                emailAddresses.add({{
+                    "EmailType": "Unknown",
+                    "Email": emailAddress
+                }});"""
+else:
+    email_block = "var emailAddresses = new ArrayList();"
 
 # Generación del String de JS dinámicamente con los bloques condicionales
 js_template = f"""// Ensure compatibility with both JDK 7 and 8 JSR-223 Script Engines 
@@ -118,11 +127,7 @@ var impl = {{
                 
                 var mobilePhone = ctx.SLO_MOBILE_REQUIRED ? ctx.SLO_MOBILE_REQUIRED : ctx.SLO_MOBILE;
                 
-                var emailAddresses = new ArrayList();
-                emailAddresses.add({{
-                    "EmailType": "Unknown",
-                    "Email": emailAddress
-                }});
+                {email_block}
                                         
                 var sourceKey = new ArrayList();
                 sourceKey.add({{
