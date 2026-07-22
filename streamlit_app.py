@@ -7,14 +7,7 @@ st.write("Campaign data")
 
 # Crear dos columnas: una para el formulario y otra para el resultado
 col1, col2 = st.columns([1, 1])
-with st.expander("Tealium data"):
-    st.write(
-        tealium_ds = st.text_input("Tealium Datasource", value="0t78qu")
-    tealium_acc = st.text_input("Tealium Account", value="astrazeneca")
-    tealium_prof = st.text_input("Tealium Profile", value="us-consumer-test")
-    brand_web = st.text_input("Brand Profile IQ", value="us-saphnelo-ic")
-    tealium_trace = st.text_input("Tealium Trace ID", value="OHywBulB")
-    )
+
 with col1:
     st.header("Input Info")
     
