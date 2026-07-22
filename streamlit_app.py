@@ -30,7 +30,6 @@ with col1:
     ctx_firstname = st.text_input("First Name", value="firstname")
     ctx_lastname = st.text_input("Last Name", value="lastName")
     ctx_emailAddress = st.text_input("email", value="emailAddress")
-	//ctx_phonenumber = st.text_input("phonenumber", value="phonenumber")
     ctx_tealiumVisitorID = st.text_input("tealiumVisitorID", value="tealiumVisitorID")
 
 # Generación del String de JS dinámicamente
@@ -81,14 +80,14 @@ var impl = {{
                 var firstName = ctx.{ctx_firstname};
                 var lastName = ctx.{ctx_lastname};
                 var emailAddress = {ctx_emailAddress};
-				//var phonenumber = {ctx_phonenumber};
                 var SLO_PRSCRB = ctx.SLO_PRSCRB; 
                 var SLO_INDICATION = ctx.indication_received_by_selections;
                 var SLO_TXDATE = ctx.SLO_CONFIRMATION_selections;
                 var SLO_INTEREST = ctx.SLO_INTEREST;
                 var SLO_TEXT = ctx.SLO_TEXT_selections;
                 
-                             
+                var mobilePhone = ctx.SLO_MOBILE_REQUIRED ? ctx.SLO_MOBILE_REQUIRED : ctx.SLO_MOBILE;
+             
                 var emailAddresses = new ArrayList();
                 emailAddresses.add({{
                     "EmailType": "Unknown",
@@ -103,7 +102,7 @@ var impl = {{
 
                 var phoneNumbers = new ArrayList();
                 phoneNumbers.add({{
-                    "Number": phonenumber,
+                    "Number": mobilePhone,
                     "PhoneType": "Unknown"
                 }});
                 
