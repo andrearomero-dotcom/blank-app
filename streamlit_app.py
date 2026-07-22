@@ -103,7 +103,7 @@ var impl = {{
 
                 var phoneNumbers = new ArrayList();
                 phoneNumbers.add({{
-                    "Number": mobilePhone,
+                    "Number": phonenumber,
                     "PhoneType": "Unknown"
                 }});
                 
