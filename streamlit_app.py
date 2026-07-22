@@ -118,7 +118,7 @@ var impl = {{
                 
                 var mobilePhone = ctx.SLO_MOBILE_REQUIRED ? ctx.SLO_MOBILE_REQUIRED : ctx.SLO_MOBILE;
 
-               if({email_line}){
+               if(email_line){
                 var emailAddresses = new ArrayList();
                 emailAddresses.add({{
                     "EmailType": "Unknown",
