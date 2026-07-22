@@ -109,6 +109,7 @@ var impl = {{
                 {firstname_line}
                 {lastname_line}
                 {email_line}
+                {phonenumber_line}
                 var SLO_PRSCRB = ctx.SLO_PRSCRB; 
                 var SLO_INDICATION = ctx.indication_received_by_selections;
                 var SLO_TXDATE = ctx.SLO_CONFIRMATION_selections;
