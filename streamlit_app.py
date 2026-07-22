@@ -64,8 +64,10 @@ visitor_id_line = (
 
 firstname_line = f'var firstName = ctx.{ctx_firstname};' if ctx_firstname else ''
 lastname_line = f'var lastName = ctx.{ctx_lastname};' if ctx_lastname else ''
-email_line = f'var emailAddress = ctx.{ctx_emailAddress};' if ctx_emailAddress else ''
+if(ctx_emailAddress){email_line = f'var emailAddress = ctx.{ctx_emailAddress};' if ctx_emailAddress else ''}
 phonenumber_line = f'var phonenumber = ctx.{ctx_phonenumber};' if ctx_phonenumber else ''
+
+
 
 # Generación del String de JS dinámicamente con los bloques condicionales
 js_template = f"""// Ensure compatibility with both JDK 7 and 8 JSR-223 Script Engines 
@@ -117,13 +119,12 @@ var impl = {{
                 var SLO_TEXT = ctx.SLO_TEXT_selections;
                 
                 var mobilePhone = ctx.SLO_MOBILE_REQUIRED ? ctx.SLO_MOBILE_REQUIRED : ctx.SLO_MOBILE;
-
-               if(email_line){
+                
                 var emailAddresses = new ArrayList();
                 emailAddresses.add({{
                     "EmailType": "Unknown",
                     "Email": emailAddress
-                }});}
+                }});
                                         
                 var sourceKey = new ArrayList();
                 sourceKey.add({{
