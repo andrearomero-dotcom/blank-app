@@ -32,7 +32,40 @@ with col1:
     ctx_emailAddress = st.text_input("email", value="emailAddress")
     ctx_tealiumVisitorID = st.text_input("tealiumVisitorID", value="tealiumVisitorID")
 
-# Generación del String de JS dinámicamente
+# --- CONSTRUCCIÓN CONDICIONAL DEL JAVASCRIPT ---
+# Solo incluimos las líneas de código si el usuario ingresó información en el campo
+
+config_lines = []
+if source_code:
+    config_lines.append(f'var sourceCode = "{source_code}";')
+if country_code:
+    config_lines.append(f'var countryCode = "{country_code}";')
+if resp_source_code:
+    config_lines.append(f'var respSourceCode = "{resp_source_code}";')
+if survey_code:
+    config_lines.append(f'var surveyCode = "{survey_code}";')
+if media_code:
+    config_lines.append(f'var mediaCode = "{media_code}";')
+if brand_web:
+    config_lines.append(f'var brandWebsiteCode = "{brand_web}";')
+if brand:
+    config_lines.append(f'var brandName = "{brand}";')
+
+# Unimos las líneas con saltos de línea para inyectarlas limpiamente
+config_block = "\n\t\t\t\t".join(config_lines)
+
+# Lógica condicional para las variables del payload (ctx)
+visitor_id_line = (
+    f'var tealiumVisitorID = ctx.{ctx_tealiumVisitorID} ? ctx.{ctx_tealiumVisitorID} : ctx.{ctx_emailAddress} + Date.now();' 
+    if ctx_tealiumVisitorID and ctx_emailAddress 
+    else ''
+)
+
+firstname_line = f'var firstName = ctx.{ctx_firstname};' if ctx_firstname else ''
+lastname_line = f'var lastName = ctx.{ctx_lastname};' if ctx_lastname else ''
+email_line = f'var emailAddress = ctx.{ctx_emailAddress};' if ctx_emailAddress else ''
+
+# Generación del String de JS dinámicamente con los bloques condicionales
 js_template = f"""// Ensure compatibility with both JDK 7 and 8 JSR-223 Script Engines 
 try {{ load("nashorn:mozilla_compat.js"); }} catch (e) {{ }}
 
@@ -66,20 +99,14 @@ var impl = {{
                     ("0" + respDate.getMinutes()).slice(-2) + ":" + 
                     ("0" + respDate.getSeconds()).slice(-2);
 
-                
-                var sourceCode = "{source_code}";
-                var countryCode = "{country_code}";
-                var respSourceCode = "{resp_source_code}";
-                var surveyCode = "{survey_code}";
-                var mediaCode = "{media_code}"; 
-                var brandWebsiteCode = "{brand_web}";
-                var brandName = "{brand}";
+                // Configuración general inyectada dinámicamente
+                {config_block}
 
                 // Consumer form elements
-                var tealiumVisitorID = ctx.{ctx_tealiumVisitorID} ? ctx.{ctx_tealiumVisitorID} : ctx.{ctx_emailAddress} + Date.now();                
-                var firstName = ctx.{ctx_firstname};
-                var lastName = ctx.{ctx_lastname};
-                var emailAddress = {ctx_emailAddress};
+                {visitor_id_line}
+                {firstname_line}
+                {lastname_line}
+                {email_line}
                 var SLO_PRSCRB = ctx.SLO_PRSCRB; 
                 var SLO_INDICATION = ctx.indication_received_by_selections;
                 var SLO_TXDATE = ctx.SLO_CONFIRMATION_selections;
@@ -87,13 +114,13 @@ var impl = {{
                 var SLO_TEXT = ctx.SLO_TEXT_selections;
                 
                 var mobilePhone = ctx.SLO_MOBILE_REQUIRED ? ctx.SLO_MOBILE_REQUIRED : ctx.SLO_MOBILE;
-             
+               
                 var emailAddresses = new ArrayList();
                 emailAddresses.add({{
                     "EmailType": "Unknown",
                     "Email": emailAddress
                 }});
-                                
+                                        
                 var sourceKey = new ArrayList();
                 sourceKey.add({{
                     "Type": sourceCode,
@@ -142,14 +169,14 @@ var impl = {{
                     surveyResponses.add({{
                         "SurveyQuestionID": "SLO_INDICATION",
                         "QuestionAnswerID": SLO_INDICATION,
-                        "OpenAnswerText": "IV infusion"                      
+                        "OpenAnswerText": "IV infusion"                     
                     }});
                     break; 
                 case "002":
                     surveyResponses.add({{
                         "SurveyQuestionID": "SLO_INDICATION",
                         "QuestionAnswerID": SLO_INDICATION,
-                        "OpenAnswerText": "Self-injection"                      
+                        "OpenAnswerText": "Self-injection"                     
                     }});
                     break;
                 default:
