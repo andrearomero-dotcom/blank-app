@@ -117,12 +117,13 @@ var impl = {{
                 var SLO_TEXT = ctx.SLO_TEXT_selections;
                 
                 var mobilePhone = ctx.SLO_MOBILE_REQUIRED ? ctx.SLO_MOBILE_REQUIRED : ctx.SLO_MOBILE;
-               
+
+               if({email_line}){
                 var emailAddresses = new ArrayList();
                 emailAddresses.add({{
                     "EmailType": "Unknown",
                     "Email": emailAddress
-                }});
+                }});}
                                         
                 var sourceKey = new ArrayList();
                 sourceKey.add({{
