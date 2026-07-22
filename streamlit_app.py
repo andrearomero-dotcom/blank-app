@@ -64,10 +64,13 @@ visitor_id_line = (
 
 firstname_line = f'var firstName = ctx.{ctx_firstname};' if ctx_firstname else ''
 lastname_line = f'var lastName = ctx.{ctx_lastname};' if ctx_lastname else ''
-email_line = f'var emailAddress = ctx.{ctx_emailAddress};' if ctx_emailAddress else ''
+//email_line = f'var emailAddress = ctx.{ctx_emailAddress};' if ctx_emailAddress else ''
 phonenumber_line = f'var phonenumber = ctx.{ctx_phonenumber};' if ctx_phonenumber else ''
 
-
+if email_line:
+    f'var emailAddress = ctx.{ctx_emailAddress};' if ctx_emailAddress else ''
+else:
+    ''
 
 # Generación del String de JS dinámicamente con los bloques condicionales
 js_template = f"""// Ensure compatibility with both JDK 7 and 8 JSR-223 Script Engines 
