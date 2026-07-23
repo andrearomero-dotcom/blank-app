@@ -5,7 +5,7 @@ st.set_page_config(page_title="Generator S3 code consumer registration", layout=
 st.title("Generator S3 code consumer registration")
 st.write("Campaign data")
 
-# Crear dos columnas: una para el formulario y otra para el resultado
+# 2 cols
 col1, col2 = st.columns([1, 1])
 
 with col1:
@@ -36,7 +36,7 @@ with col1:
     ctx_AddressLine1 = st.text_input("Address Line 1", value="AddressLine1")
     ctx_tealiumVisitorID = st.text_input("tealiumVisitorID", value="tealiumVisitorID")
 
-# --- CONSTRUCCIÓN CONDICIONAL DEL JAVASCRIPT ---
+# DED data
 config_lines = []
 if source_code:
     config_lines.append(f'var sourceCode = "{source_code}";')
@@ -53,10 +53,10 @@ if brand_web:
 if brand:
     config_lines.append(f'var brandName = "{brand}";')
 
-# Unimos las líneas con saltos de línea para inyectarlas limpiamente
+# join lines
 config_block = "\n\t\t\t\t".join(config_lines)
 
-# Lógica condicional para las variables del payload (ctx)
+# conditional vars
 visitor_id_line = (
     f'var tealiumVisitorID = ctx.{ctx_tealiumVisitorID} ? ctx.{ctx_tealiumVisitorID} : ctx.{ctx_emailAddress} + Date.now();' 
     if ctx_tealiumVisitorID and ctx_emailAddress 
@@ -102,7 +102,7 @@ else:
                     "PhoneType": "Unknown"
                 }});"""
 
-# Generación del String de JS dinámicamente con los bloques condicionales
+# S3 code template
 js_template = f"""// Ensure compatibility with both JDK 7 and 8 JSR-223 Script Engines 
 try {{ load("nashorn:mozilla_compat.js"); }} catch (e) {{ }}
 
@@ -136,7 +136,7 @@ var impl = {{
                     ("0" + respDate.getMinutes()).slice(-2) + ":" + 
                     ("0" + respDate.getSeconds()).slice(-2);
 
-                // Configuración general inyectada dinámicamente
+                // DED data
                 {config_block}
 
                 // Consumer form elements
