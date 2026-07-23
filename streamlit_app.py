@@ -31,6 +31,9 @@ with col1:
     ctx_lastname = st.text_input("Last Name", value="lastName")
     ctx_emailAddress = st.text_input("email", value="emailAddress")
     ctx_phonenumber = st.text_input("Phone Number", value="phonenumber")
+    ctx_stateCode = st.text_input("Zip Code", value="state")
+    ctx_zip = st.text_input("state Code", value="zipcode")
+    ctx_AddressLine1 = st.text_input("Address Line 1", value="AddressLine1")
     ctx_tealiumVisitorID = st.text_input("tealiumVisitorID", value="tealiumVisitorID")
 
 # --- CONSTRUCCIÓN CONDICIONAL DEL JAVASCRIPT ---
@@ -64,6 +67,10 @@ firstname_line = f'var firstName = ctx.{ctx_firstname};' if ctx_firstname else '
 lastname_line = f'var lastName = ctx.{ctx_lastname};' if ctx_lastname else 'var lastName = "";'
 email_line = f'var emailAddress = ctx.{ctx_emailAddress};' if ctx_emailAddress else 'var emailAddress = "";'
 phonenumber_line = f'var phonenumber = ctx.{ctx_phonenumber};' if ctx_phonenumber else 'var phonenumber = "";'
+stateCode_line = f'var stateCode = ctx.{ctx_stateCode};' if ctx_stateCode else 'var stateCode = "";'
+ZipCode_line = f'var zip = ctx.{ctx_zip};' if ctx_zip else 'var zip = "";'
+AddressLine1_line = f'var AddressLine1 = ctx.{ctx_addressLine1};' if ctx_addressLine1 else 'var AddressLine1 = "";'
+
 
 # Email array
 email_array = ""
@@ -161,7 +168,8 @@ var impl = {{
                     "LastName": lastName,
                     "PhoneNumbers": phoneNumbers,
                     "Gender": "Unknown",
-                    "EmailAddresses": emailAddresses,    
+                    "EmailAddresses": emailAddresses,
+                    "Addresses": addresses,
                     "SourceKey": sourceKey,
                     "CountryCode": countryCode
                 }});
