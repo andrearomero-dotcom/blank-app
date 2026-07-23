@@ -135,9 +135,8 @@ var impl = {{
                 var SLO_TXDATE = ctx.SLO_CONFIRMATION_selections;
                 var SLO_INTEREST = ctx.SLO_INTEREST;
                 var SLO_TEXT = ctx.SLO_TEXT_selections;
-                
-                var mobilePhone = ctx.SLO_MOBILE_REQUIRED ? ctx.SLO_MOBILE_REQUIRED : ctx.SLO_MOBILE;
-                
+
+                //Arrays Payload
                 {email_array}
                 {phone_array}
                                         
