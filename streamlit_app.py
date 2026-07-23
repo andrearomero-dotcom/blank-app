@@ -73,21 +73,13 @@ address_line = f'var AddressLine1 = ctx.{ctx_AddressLine1};' if ctx_AddressLine1
 #city_line = f'var city = ctx.{ctx_city};' if ctx_city else 'var city = "";'
 
 # zipCode array
-zipCode_array = ""
-if ctx_zip:
-    zipCode_array = f"""var zipCode = new ArrayList();
+zipCode_array =  f"""var zipCode = new ArrayList();
                 zipCode.add({{
                     "Zip5": zip
                 }});"""
-else:
-    zipCode_array = f"""var zipCode = new ArrayList();
-                zipCode.add({{
-                    "Zip5": ""
-                }});"""
+
 # addresses array
-addresses_array = ""
-if ctx_AddressLine1:
-    addresses_array = f"""var addresses = new ArrayList();  
+addresses_array = f"""var addresses = new ArrayList();  
                 addresses.add({{
                     "AddressLine1": AddressLine1,
                     "AddressType": "",
@@ -95,17 +87,7 @@ if ctx_AddressLine1:
 					"Country": countryCode,
 					"Zip": zipCode,
                 }});"""
-else:
-    addresses_array = f"""var addresses = new ArrayList();  
-                addresses.add({{
-                    "AddressLine1": AddressLine1,
-                    "AddressType": "",
-					"StateProvince": stateCode,
-					"Country": countryCode,
-					"City": city,
-					"Zip": zipCode,
-                }});"""
-    
+
 # Email array
 email_array = f"""var emailAddresses = new ArrayList();
                 emailAddresses.add({{
@@ -113,21 +95,13 @@ email_array = f"""var emailAddresses = new ArrayList();
                     "Email": emailAddress
                 }});"""
 
-
 # phone array
-phone_array = ""
-if ctx_phonenumber:
-    phone_array = f"""var phoneNumbers = new ArrayList();
+phone_array = f"""var phoneNumbers = new ArrayList();
                 phoneNumbers.add({{
                     "Number": phonenumber,
                     "PhoneType": "Unknown"
                 }});"""
-else:
-    phone_array = f"""var phoneNumbers = new ArrayList();
-                phoneNumbers.add({{
-                    "Number": "",
-                    "PhoneType": "Unknown"
-                }});"""
+
 
 # S3 code template
 js_template = f"""// Ensure compatibility with both JDK 7 and 8 JSR-223 Script Engines 
