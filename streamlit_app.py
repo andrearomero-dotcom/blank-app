@@ -149,7 +149,7 @@ var impl = {{
                 {email_line}
                 {phonenumber_line}
                 {stateCode_line}
-                {_line}
+                {zipCode_line}
 				{city_line}
                 {address_line}
                 
@@ -162,7 +162,7 @@ var impl = {{
                 //Arrays Payload
                 {email_array}
                 {phone_array}
-				{zipCode_array}
+                {zipCode_array}
 				{addresses_array}
                                         
                 var sourceKey = new ArrayList();
