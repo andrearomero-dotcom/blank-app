@@ -83,7 +83,7 @@ zipCode_array =  f"""var zipCode = new ArrayList();
                 }});"""
 
 # addresses array
-addresses_array = f"""var addresses = new ArrayList();  
+addresses_array =  f"""var addresses = new ArrayList();  
                 addresses.add({{
                     "AddressLine1": AddressLine1,
                     "AddressType": "",
