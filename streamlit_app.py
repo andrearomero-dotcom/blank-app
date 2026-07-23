@@ -3,16 +3,15 @@ import streamlit as st
 st.set_page_config(page_title="Generator S3 code consumer registration", layout="wide")
 
 st.title("Generator S3 code consumer registration")
-st.write("Campaign data")
+
 
 # 2 cols
 col1, col2 = st.columns([1, 1])
 
 with col1:
     st.header("Input Info")
-    
-    brand = st.text_input("Brand", value="Saphnelo")
-    
+    st.write("Mandatory data*")
+    brand = st.text_input("Brand*", value="Saphnelo")    
     source_code = st.text_input("Source Code*", value="ODGT")
     country_code = st.text_input("Country Code*", value="USA")
     resp_source_code = st.text_input("Response Source Code*", value="SLO_PSP_B_WB_1")
