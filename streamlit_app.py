@@ -142,6 +142,7 @@ var impl = {{
                     ("0" + respDate.getSeconds()).slice(-2);
 
                 // DED data
+				 var sourceCode = "{source_code}";
                 {config_block}
 
                 // Consumer form elements
