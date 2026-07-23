@@ -54,7 +54,7 @@ if brand:
     config_lines.append(f'var brandName = "{brand}";')
 
 # Unimos las líneas con saltos de línea para inyectarlas limpiamente
-config_block = "\t\t\t\t".join(config_lines)
+config_block = "\n\t\t\t\t".join(config_lines)
 
 # Lógica condicional para las variables del payload (ctx)
 visitor_id_line = (
