@@ -89,7 +89,11 @@ if ctx_phonenumber:
                     "PhoneType": "Unknown"
                 }});"""
 else:
-    phone_array = "var phoneNumbers = '';"
+    phone_array = f"""var phoneNumbers = new ArrayList();
+                phoneNumbers.add({{
+                    "Number": "",
+                    "PhoneType": "Unknown"
+                }});"""
 
 # Generación del String de JS dinámicamente con los bloques condicionales
 js_template = f"""// Ensure compatibility with both JDK 7 and 8 JSR-223 Script Engines 
