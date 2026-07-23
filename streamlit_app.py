@@ -80,9 +80,9 @@ else:
 phone_array = ""
 if ctx_phonenumber:
     phone_array = f"""var phoneNumbers = new ArrayList();
-                emailAddresses.add({{
-                    "EmailType": "Unknown",
-                    "Email": emailAddress
+                phoneNumbers.add({{
+                    "Number": ctx_phonenumber,
+                    "PhoneType": "Unknown"
                 }});"""
 else:
     phone_array = ""
