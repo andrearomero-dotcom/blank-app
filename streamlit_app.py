@@ -162,6 +162,7 @@ var impl = {{
                 //Arrays Payload
                 {email_array}
                 {phone_array}
+				{zipCode_array}
 				{addresses_array}
                                         
                 var sourceKey = new ArrayList();
