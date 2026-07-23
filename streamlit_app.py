@@ -33,6 +33,7 @@ with col1:
     ctx_phonenumber = st.text_input("Phone Number", value="phonenumber")
     ctx_stateCode = st.text_input("State Code", value="state")
     ctx_zip = st.text_input("Zip Code", value="zipcode")
+	ctx_city = st.text_input("City", value="city")
     ctx_AddressLine1 = st.text_input("Address Line 1", value="AddressLine1")
     ctx_tealiumVisitorID = st.text_input("tealiumVisitorID", value="tealiumVisitorID")
 
@@ -70,6 +71,7 @@ phonenumber_line = f'var phonenumber = ctx.{ctx_phonenumber};' if ctx_phonenumbe
 stateCode_line = f'var stateCode = ctx.{ctx_stateCode};' if ctx_stateCode else 'var stateCode = "";'
 zipCode_line = f'var zip = ctx.{ctx_zip};' if ctx_zip else 'var zip = "";'
 address_line = f'var AddressLine1 = ctx.{ctx_AddressLine1};' if ctx_AddressLine1 else 'var AddressLine1 = "";'
+city_line = f'var city = ctx.{ctx_city};' if ctx_city else 'var city = "";'
 
 # zipCode array
 zipCode_array = ""
@@ -91,29 +93,28 @@ if ctx_AddressLine1:
                     "AddressLine1": AddressLine1,
                     "AddressType": "",
 					"StateProvince": stateCode,
-					"Zip": zipCode,
 					"Country": countryCode,
+					"City": city,
+					"Zip": zipCode,
                 }});"""
 else:
-    addresses_array = f"""var zipCode = new ArrayList();
-                zipCode.add({{
-                    "Zip5": ""
+    addresses_array = f"""var addresses = new ArrayList();  
+                addresses.add({{
+                    "AddressLine1": AddressLine1,
+                    "AddressType": "",
+					"StateProvince": stateCode,
+					"Country": countryCode,
+					"City": city,
+					"Zip": zipCode,
                 }});"""
     
 # Email array
-email_array = ""
-if ctx_emailAddress:
-    email_array = f"""var emailAddresses = new ArrayList();
+email_array = f"""var emailAddresses = new ArrayList();
                 emailAddresses.add({{
                     "EmailType": "Unknown",
                     "Email": emailAddress
                 }});"""
-else:
-    email_array = f"""var emailAddresses = new ArrayList();
-                emailAddresses.add({{
-                    "EmailType": "Unknown",
-                    "Email": ""
-                }});"""
+
 
 # phone array
 phone_array = ""
