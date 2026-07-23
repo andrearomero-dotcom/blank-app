@@ -122,7 +122,7 @@ var impl = {{
                     ("0" + respDate.getSeconds()).slice(-2);
 
                 // DED data
-				 var sourceCode = "{source_code}";
+				var sourceCode = "{source_code}";
 				 var sourceCode = "{source_code}";
 				 var countryCode = "{country_code}";
 				 var respSourceCode = "{resp_source_code}";
