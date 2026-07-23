@@ -69,6 +69,7 @@ email_line = f'var emailAddress = ctx.{ctx_emailAddress};' if ctx_emailAddress e
 phonenumber_line = f'var phonenumber = ctx.{ctx_phonenumber};' if ctx_phonenumber else 'var phonenumber = "";'
 stateCode_line = f'var stateCode = ctx.{ctx_stateCode};' if ctx_stateCode else 'var stateCode = "";'
 zipCode_line = f'var zip = ctx.{ctx_zip};' if ctx_zip else 'var zip = "";'
+address_line = f'var AddressLine = ctx.{ctx_AddressLine1};' if ctx_AddressLine1 else 'var AddressLine = "";'
 
 # zipCode array
 zipCode_array = ""
