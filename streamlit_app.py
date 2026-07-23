@@ -74,7 +74,7 @@ if ctx_emailAddress:
                     "Email": emailAddress
                 }});"""
 else:
-    email_array = ""
+    emailAddress = ""
 
 # phone array
 phone_array = ""
@@ -85,7 +85,7 @@ if ctx_phonenumber:
                     "PhoneType": "Unknown"
                 }});"""
 else:
-    phone_array = ""
+    phonenumber = ""
 
 # Generación del String de JS dinámicamente con los bloques condicionales
 js_template = f"""// Ensure compatibility with both JDK 7 and 8 JSR-223 Script Engines 
