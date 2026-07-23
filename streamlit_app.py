@@ -70,7 +70,18 @@ phonenumber_line = f'var phonenumber = ctx.{ctx_phonenumber};' if ctx_phonenumbe
 stateCode_line = f'var stateCode = ctx.{ctx_stateCode};' if ctx_stateCode else 'var stateCode = "";'
 zipCode_line = f'var zip = ctx.{ctx_zip};' if ctx_zip else 'var zip = "";'
 
-
+# zipCode array
+zipCode_array = ""
+if ctx_zip:
+    zipCode_array = f"""var zipCode = new ArrayList();
+                zipCode.add({{
+                    "Zip5": zip
+                }});"""
+else:
+    zipCode_array = f"""var zipCode = new ArrayList();
+                zipCode.add({{
+                    "Zip5": ""
+                }});"""
 
 # Email array
 email_array = ""
@@ -157,6 +168,7 @@ var impl = {{
                 //Arrays Payload
                 {email_array}
                 {phone_array}
+                {zipCode_array}
                                         
                 var sourceKey = new ArrayList();
                 sourceKey.add({{
