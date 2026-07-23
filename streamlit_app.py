@@ -81,7 +81,7 @@ phone_array = ""
 if ctx_phonenumber:
     phone_array = f"""var phoneNumbers = new ArrayList();
                 phoneNumbers.add({{
-                    "Number": ctx_phonenumber,
+                    "Number": phonenumber,
                     "PhoneType": "Unknown"
                 }});"""
 else:
