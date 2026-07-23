@@ -60,7 +60,7 @@ visitor_id_line = (
     else ''
 )
 
-firstname_line = f'var firstName = ctx.{ctx_firstname};' if ctx_firstname else firstName =""
+firstname_line = f'var firstName = ctx.{ctx_firstname};' if ctx_firstname else 'var lastName = "";'
 lastname_line = f'var lastName = ctx.{ctx_lastname};' if ctx_lastname else ''
 email_line = f'var emailAddress = ctx.{ctx_emailAddress};' if ctx_emailAddress else ''
 phonenumber_line = f'var phonenumber = ctx.{ctx_phonenumber};' if ctx_phonenumber else ''
