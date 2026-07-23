@@ -69,7 +69,7 @@ email_line = f'var emailAddress = ctx.{ctx_emailAddress};' if ctx_emailAddress e
 phonenumber_line = f'var phonenumber = ctx.{ctx_phonenumber};' if ctx_phonenumber else 'var phonenumber = "";'
 stateCode_line = f'var stateCode = ctx.{ctx_stateCode};' if ctx_stateCode else 'var stateCode = "";'
 zipCode_line = f'var zip = ctx.{ctx_zip};' if ctx_zip else 'var zip = "";'
-addressLine1_line = f'var AddressLine1 = ctx.{ctx_addressLine1};' if ctx_addressLine1 else 'var AddressLine1 = "";'
+
 
 
 # Email array
