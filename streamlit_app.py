@@ -87,14 +87,13 @@ else:
 addresses_array = ""
 if ctx_AddressLine1:
     addresses_array = f"""var addresses = new ArrayList();  
-                addresses.add({					
-					"AddressLine1": AddressLine,
-					"AddressType": "",
+                addresses.add({{
+                    "AddressLine1": AddressLine,
+                    "AddressType": "",
 					"StateProvince": stateCode,
+					"Zip": zipCode,
 					"Country": countryCode,
-					"City": "",
-					"Zip": zipCode
-				});"""
+                }});"""
 else:
     addresses_array = f"""var zipCode = new ArrayList();
                 zipCode.add({{
