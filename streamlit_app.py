@@ -76,16 +76,6 @@ if ctx_emailAddress:
 else:
     email_array = ""
 
-phonenumber_array = ""
-if ctx_phonenumber:
-    phonenumber_array = f"""var phoneNumbers = new ArrayList();
-                phoneNumbers.add({{
-                    "Number": phonenumber,
-                    "PhoneType": "Unknown"
-                }});"""
-else:
-    phonenumber_array = ""
-
 # Generación del String de JS dinámicamente con los bloques condicionales
 js_template = f"""// Ensure compatibility with both JDK 7 and 8 JSR-223 Script Engines 
 try {{ load("nashorn:mozilla_compat.js"); }} catch (e) {{ }}
@@ -145,7 +135,11 @@ var impl = {{
                     "Value": tealiumVisitorID
                 }});
 
-                
+                var phoneNumbers = new ArrayList();
+                phoneNumbers.add({{
+                    "Number": mobilePhone,
+                    "PhoneType": "Unknown"
+                }});
                 
                 var profile = new ArrayList();
                 profile.add({{
