@@ -74,7 +74,11 @@ if ctx_emailAddress:
                     "Email": emailAddress
                 }});"""
 else:
-    email_array = "var emailAddresses = '';"
+    email_array = f"""var emailAddresses = new ArrayList();
+                emailAddresses.add({{
+                    "EmailType": "Unknown",
+                    "Email": ""
+                }});"""
 
 # phone array
 phone_array = ""
