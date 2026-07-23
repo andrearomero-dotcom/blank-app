@@ -145,12 +145,6 @@ var impl = {{
                     "Type": sourceCode,
                     "Value": tealiumVisitorID
                 }});
-
-                var phoneNumbers = new ArrayList();
-                phoneNumbers.add({{
-                    "Number": mobilePhone,
-                    "PhoneType": "Unknown"
-                }});
                 
                 var profile = new ArrayList();
                 profile.add({{
