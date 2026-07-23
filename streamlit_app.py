@@ -139,6 +139,7 @@ var impl = {{
                 var mobilePhone = ctx.SLO_MOBILE_REQUIRED ? ctx.SLO_MOBILE_REQUIRED : ctx.SLO_MOBILE;
                 
                 {email_array}
+                {phone_array}
                                         
                 var sourceKey = new ArrayList();
                 sourceKey.add({{
