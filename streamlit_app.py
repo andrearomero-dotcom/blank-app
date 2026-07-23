@@ -35,7 +35,9 @@ with col1:
     ctx_city = st.text_input("City", value="city")
     ctx_zip = st.text_input("Zip Code", value="zipcode")
     ctx_AddressLine1 = st.text_input("Address Line 1", value="AddressLine1")
+	ctx_patientGender = st.text_input("Gender", value="patientGender")
     ctx_tealiumVisitorID = st.text_input("tealiumVisitorID", value="tealiumVisitorID")
+	
 
 # DED data
 config_lines = []
@@ -72,6 +74,7 @@ stateCode_line = f'var stateCode = ctx.{ctx_stateCode};' if ctx_stateCode else '
 zipCode_line = f'var zip = ctx.{ctx_zip};' if ctx_zip else 'var zip = "";'
 address_line = f'var AddressLine1 = ctx.{ctx_AddressLine1};' if ctx_AddressLine1 else 'var AddressLine1 = "";'
 city_line = f'var city = ctx.{ctx_city};' if ctx_city else 'var city = "";'
+patientGender_line = f'var gender = ctx.{ctx_patientGender};' if ctx_patientGender else 'var gender = "Unknown";'
 
 # zipCode array
 zipCode_array =  f"""var zipCode = new ArrayList();
@@ -152,6 +155,7 @@ var impl = {{
                 {zipCode_line}
 				{city_line}
                 {address_line}
+				{patientGender_line}
                 
                 var SLO_PRSCRB = ctx.SLO_PRSCRB; 
                 var SLO_INDICATION = ctx.indication_received_by_selections;
@@ -177,7 +181,7 @@ var impl = {{
                     "FirstName": firstName,
                     "LastName": lastName,
                     "PhoneNumbers": phoneNumbers,
-                    "Gender": "Unknown",
+                    "Gender": gender,
                     "EmailAddresses": emailAddresses,
                     "Addresses": addresses,
                     "SourceKey": sourceKey,
