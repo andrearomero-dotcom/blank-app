@@ -74,7 +74,7 @@ if ctx_emailAddress:
                     "Email": emailAddress
                 }});"""
 else:
-    emailAddress = ""
+    email_array = "var emailAddresses = new ArrayList();"
 
 # phone array
 phone_array = ""
