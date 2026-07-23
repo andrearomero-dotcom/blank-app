@@ -143,7 +143,14 @@ var impl = {{
 
                 // DED data
 				 var sourceCode = "{source_code}";
-                {config_block}
+				 var sourceCode = "{source_code}";
+				 var countryCode = "{country_code}";
+				 var respSourceCode = "{resp_source_code}";
+				 var surveyCode = "{survey_code}";
+				 var mediaCode = "{media_code}";
+				 var brandWebsiteCode = "{brand_web}";
+				 var brandName = "{brand}";
+                
 
                 // Consumer form elements
                 {visitor_id_line}
