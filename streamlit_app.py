@@ -13,11 +13,11 @@ with col1:
     
     brand = st.text_input("Brand", value="Saphnelo")
     
-    source_code = st.text_input("Source Code", value="ODGT")
-    country_code = st.text_input("Country Code", value="USA")
-    resp_source_code = st.text_input("Response Source Code", value="SLO_PSP_B_WB_1")
-    survey_code = st.text_input("Survey Code (SurveyID)", value="SLO_PSP_B_WB_1")
-    media_code = st.text_input("Media Code", value="SLO_C_C_123")
+    source_code = st.text_input("Source Code*", value="ODGT")
+    country_code = st.text_input("Country Code*", value="USA")
+    resp_source_code = st.text_input("Response Source Code*", value="SLO_PSP_B_WB_1")
+    survey_code = st.text_input("Survey Code (SurveyID)*", value="SLO_PSP_B_WB_1")
+    media_code = st.text_input("Media Code*", value="SLO_C_C_123")
     
     st.subheader("Tealium data")
     tealium_ds = st.text_input("Tealium Datasource", value="0t78qu")
