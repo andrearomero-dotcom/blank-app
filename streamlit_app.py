@@ -86,6 +86,7 @@ addresses_array = f"""var addresses = new ArrayList();
                     "AddressType": "",
 					"StateProvince": stateCode,
 					"Country": countryCode,
+					"City": city,
 					"Zip": zipCode,
                 }});"""
 
@@ -149,6 +150,7 @@ var impl = {{
                 {phonenumber_line}
                 {stateCode_line}
                 {zipCode_line}
+				{city_line}
                 {address_line}
                 
                 var SLO_PRSCRB = ctx.SLO_PRSCRB; 
