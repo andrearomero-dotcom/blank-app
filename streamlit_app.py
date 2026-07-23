@@ -83,7 +83,24 @@ else:
                 zipCode.add({{
                     "Zip5": ""
                 }});"""
-
+# addresses array
+addresses_array = ""
+if ctx_AddressLine1:
+    addresses_array = f"""var addresses = new ArrayList();  
+                addresses.add({					
+					"AddressLine1": AddressLine,
+					"AddressType": "",
+					"StateProvince": stateCode,
+					"Country": countryCode,
+					"City": "",
+					"Zip": zipCode
+				});"""
+else:
+    addresses_array = f"""var zipCode = new ArrayList();
+                zipCode.add({{
+                    "Zip5": ""
+                }});"""
+    
 # Email array
 email_array = ""
 if ctx_emailAddress:
