@@ -38,26 +38,6 @@ with col1:
     ctx_tealiumVisitorID = st.text_input("tealiumVisitorID", value="tealiumVisitorID")
 	
 
-# DED data
-config_lines = []
-if source_code:
-    config_lines.append(f'var sourceCode = "{source_code}";')
-if country_code:
-    config_lines.append(f'var countryCode = "{country_code}";')
-if resp_source_code:
-    config_lines.append(f'var respSourceCode = "{resp_source_code}";')
-if survey_code:
-    config_lines.append(f'var surveyCode = "{survey_code}";')
-if media_code:
-    config_lines.append(f'var mediaCode = "{media_code}";')
-if brand_web:
-    config_lines.append(f'var brandWebsiteCode = "{brand_web}";')
-if brand:
-    config_lines.append(f'var brandName = "{brand}";')
-
-# join lines
-config_block = "\n\t\t\t\t".join(config_lines)
-
 # conditional vars
 visitor_id_line = (
     f'var tealiumVisitorID = ctx.{ctx_tealiumVisitorID} ? ctx.{ctx_tealiumVisitorID} : ctx.{ctx_emailAddress} + Date.now();' 
