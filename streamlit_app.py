@@ -60,10 +60,10 @@ visitor_id_line = (
     else ''
 )
 
-firstname_line = f'var firstName = ctx.{ctx_firstname};' if ctx_firstname else 'var lastName = "";'
-lastname_line = f'var lastName = ctx.{ctx_lastname};' if ctx_lastname else ''
-email_line = f'var emailAddress = ctx.{ctx_emailAddress};' if ctx_emailAddress else ''
-phonenumber_line = f'var phonenumber = ctx.{ctx_phonenumber};' if ctx_phonenumber else ''
+firstname_line = f'var firstName = ctx.{ctx_firstname};' if ctx_firstname else 'var firstName = "";'
+lastname_line = f'var lastName = ctx.{ctx_lastname};' if ctx_lastname else 'var lastName = "";'
+email_line = f'var emailAddress = ctx.{ctx_emailAddress};' if ctx_emailAddress else 'var emailAddress = "";'
+phonenumber_line = f'var phonenumber = ctx.{ctx_phonenumber};' if ctx_phonenumber else 'var phonenumber = "";'
 
 # Email array
 email_array = ""
@@ -85,7 +85,7 @@ if ctx_phonenumber:
                     "PhoneType": "Unknown"
                 }});"""
 else:
-    phonenumber = ""
+    phone_array = "var phoneNumbers = '';"
 
 # Generación del String de JS dinámicamente con los bloques condicionales
 js_template = f"""// Ensure compatibility with both JDK 7 and 8 JSR-223 Script Engines 
