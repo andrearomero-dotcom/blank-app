@@ -31,8 +31,8 @@ with col1:
     ctx_lastname = st.text_input("Last Name", value="lastName")
     ctx_emailAddress = st.text_input("email", value="emailAddress")
     ctx_phonenumber = st.text_input("Phone Number", value="phonenumber")
-    ctx_stateCode = st.text_input("Zip Code", value="state")
-    ctx_zip = st.text_input("state Code", value="zipcode")
+    ctx_stateCode = st.text_input("State Code", value="state")
+    ctx_zip = st.text_input("Zip Code", value="zipcode")
     ctx_AddressLine1 = st.text_input("Address Line 1", value="AddressLine1")
     ctx_tealiumVisitorID = st.text_input("tealiumVisitorID", value="tealiumVisitorID")
 
