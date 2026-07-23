@@ -153,9 +153,9 @@ var impl = {{
                 {phonenumber_line}
                 {stateCode_line}
                 {zipCode_line}
-				{city_line}
+                {city_line}
                 {address_line}
-				{patientGender_line}
+                {patientGender_line}
                 
                 var SLO_PRSCRB = ctx.SLO_PRSCRB; 
                 var SLO_INDICATION = ctx.indication_received_by_selections;
