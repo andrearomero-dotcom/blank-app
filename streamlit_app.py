@@ -71,7 +71,7 @@ phonenumber_line = f'var phonenumber = ctx.{ctx_phonenumber};' if ctx_phonenumbe
 stateCode_line = f'var stateCode = ctx.{ctx_stateCode};' if ctx_stateCode else 'var stateCode = "";'
 zipCode_line = f'var zip = ctx.{ctx_zip};' if ctx_zip else 'var zip = "";'
 address_line = f'var AddressLine1 = ctx.{ctx_AddressLine1};' if ctx_AddressLine1 else 'var AddressLine1 = "";'
-#city_line = f'var city = ctx.{ctx_city};' if ctx_city else 'var city = "";'
+city_line = f'var city = ctx.{ctx_city};' if ctx_city else 'var city = "";'
 
 # zipCode array
 zipCode_array =  f"""var zipCode = new ArrayList();
